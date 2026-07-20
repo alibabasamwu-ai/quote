@@ -94,12 +94,22 @@
   .nav .btn-sm{ padding:10px 20px; font-size:14px; }
 
   /* ============ HERO ============ */
-  .hero{ padding:74px 0 40px; overflow:hidden; }
+  .hero{ padding:74px 0 110px; overflow:hidden; }
   .hero::before{ content:""; position:absolute; inset:0; z-index:-1;
     background:
       radial-gradient(60% 55% at 82% 8%, var(--primary-soft), transparent 70%),
       radial-gradient(45% 45% at 6% 82%, color-mix(in srgb, var(--navy) 8%, transparent), transparent 70%);
   }
+  /* Animated brand wave band */
+  .hero-waves{ position:absolute; left:0; right:0; bottom:0; width:100%; height:150px; z-index:-1; line-height:0; pointer-events:none; }
+  .hero-waves svg{ width:100%; height:100%; display:block; }
+  .hero-waves use{ animation:wave-move 20s cubic-bezier(.55,.5,.45,.5) infinite; }
+  .hero-waves .w1{ fill:color-mix(in srgb, var(--navy) 12%, transparent); animation-duration:26s; animation-delay:-3s; }
+  .hero-waves .w2{ fill:color-mix(in srgb, var(--primary) 16%, transparent); animation-duration:20s; animation-delay:-5s; }
+  .hero-waves .w3{ fill:color-mix(in srgb, var(--primary) 28%, transparent); animation-duration:15s; animation-delay:-2s; }
+  .hero-waves .w4{ fill:color-mix(in srgb, var(--primary) 82%, var(--navy)); animation-duration:11s; }
+  @keyframes wave-move{ 0%{ transform:translate3d(-90px,0,0); } 100%{ transform:translate3d(85px,0,0); } }
+  @media (prefers-reduced-motion:reduce){ .hero-waves use{ animation:none; } }
   .hero-grid{ display:grid; grid-template-columns:1.02fr 1fr; gap:56px; align-items:center; }
   .eyebrow{ display:inline-flex; align-items:center; gap:9px; font-size:13px; font-weight:700;
     color:var(--primary-strong); background:var(--primary-soft); border:1px solid var(--primary-line);
@@ -409,9 +419,20 @@
         </div>
       </div>
     </div>
+    <div class="hero-waves" aria-hidden="true">
+      <svg viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="hero-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+        </defs>
+        <g>
+          <use class="w1" href="#hero-wave" x="48" y="0"/>
+          <use class="w2" href="#hero-wave" x="48" y="3"/>
+          <use class="w3" href="#hero-wave" x="48" y="5"/>
+          <use class="w4" href="#hero-wave" x="48" y="7"/>
+        </g>
+      </svg>
+    </div>
   </section>
-
-  <!-- ============ FEATURES ============ -->
   <section class="sec features" id="features" data-component="Value Props" data-od-id="features">
     <div class="wrap">
       <div class="sec-head-center">
