@@ -718,6 +718,9 @@ const CATALOG = [
   { id:"SITE100",name:"建站發品包 (100支)",        qty:"贈送",   price:88000,  bonus:true  },
   { id:"SITE200",name:"建站發品包 (200支)",        qty:"贈送",   price:120000, bonus:true  },
   { id:"AIAST",  name:"AI 生意助手",         qty:"贈送",   price:45000,  bonus:true  },
+  { id:"SAAP",   name:"生意助手 Pro",        qty:"1年",    price:10400,  bonus:false },
+  { id:"SAAE",   name:"生意助手 Elite",      qty:"1年",    price:20800,  bonus:false },
+  { id:"SAAU",   name:"生意助手 Ultra",      qty:"1年",    price:41600,  bonus:false },
   { id:"RFQ",    name:"主動報價功能 RFQ", qty:"贈送", price:86000, bonus:true }
 ];
 
@@ -926,7 +929,25 @@ const PROMOS = [
     subtitle:"★ 電商經營心智培養 ★", type:"課程",
     items:{OGY:1}, price:36000,
     feats:[
-      {n:"課程",t:"建議老闆／二代／高階主管參加",d:"培養電商經營心智與策略視野<br>操作員建議搭配區培＋橙效營"}]}
+      {n:"課程",t:"建議老闆／二代／高階主管參加",d:"培養電商經營心智與策略視野<br>操作員建議搭配區培＋橙效營"}]},
+
+  // ===== SAA 生意助手 =====
+  { id:"SAAP_1Y", group:"單品", label:"生意助手 Pro 1年",
+    subtitle:"★ AI 智能生意助手 基礎版 ★", type:"單品方案",
+    items:{SAAP:1}, price:10400,
+    feats:[
+      {n:"AI",t:"基礎版智能服務",d:"智能發品與接待功能<br>協助優化產品與客戶管理"}]},
+  { id:"SAAE_1Y", group:"單品", label:"生意助手 Elite 1年",
+    subtitle:"★ AI 智能生意助手 進階版 ★", type:"單品方案",
+    items:{SAAE:1}, price:20800,
+    feats:[
+      {n:"AI",t:"進階版智能服務",d:"完整智能營銷功能<br>Q3 促銷半價優惠"},
+      {n:"優惠",t:"半價特惠",d:"原價 NT$20,800<br>促銷期間享半價優惠"}]},
+  { id:"SAAU_1Y", group:"單品", label:"生意助手 Ultra 1年",
+    subtitle:"★ AI 智能生意助手 旗艦版 ★", type:"單品方案",
+    items:{SAAU:1}, price:41600,
+    feats:[
+      {n:"AI",t:"旗艦版智能服務",d:"全方位 AI 智能營銷解決方案<br>涵蓋所有進階功能"}]}
 ];
 
 // 未套用促銷（自由勾選）時的通用權益卡片
@@ -970,6 +991,16 @@ const PRICE_TABLE = [
       "智能發品：優化產品標題、圖片、視頻",
       "智能接待：智慧生成對話報價",
       "智能分析：市場結論 & 生意建議" ] },
+  { cat:"AI 服務", nm:"生意助手 Pro", price:"NT$10,400", desc:[
+      "基礎版 AI 生意助手",
+      "智能發品與接待功能" ] },
+  { cat:"AI 服務", nm:"生意助手 Elite", price:"NT$20,800", desc:[
+      "進階版 AI 生意助手",
+      "完整智能營銷功能",
+      "Q3 促銷半價優惠" ] },
+  { cat:"AI 服務", nm:"生意助手 Ultra", price:"NT$41,600", desc:[
+      "旗艦版 AI 生意助手",
+      "全方位 AI 智能營銷解決方案" ] },
   { cat:"AI 服務", nm:"OKKI AI Reach", price:"NT$85,000", desc:[
       "全自動挖客 AI 助手，一年交付 24,000 筆潛客名單（每月 2,000 筆，單筆 3.54 元）",
       "AI 爬取貴司外銷官網，以樹狀圖分析客戶畫像與產品關鍵詞",
